@@ -92,4 +92,25 @@ var maxProfit = function (prices) {
     return profit
 };
 
-console.log(maxProfit([7,1,5,3,6,4]))
+console.log(maxProfit([7,1,5,3,6,4]));
+
+//task6
+//53. Maximum Subarray
+var maxSubArray = function(nums) {
+    let maxSum = -Infinity;
+    let sum = 0;
+
+    if(nums.length === 1) {
+        maxSum = nums[0]
+    } else {
+        for(let i of nums) {
+            sum = Math.max(i, i + sum)
+
+            maxSum = Math.max(maxSum, sum);
+            if(sum < 0) sum = 0;
+        }
+    }
+
+    return maxSum
+};
+console.log(maxSubArray([-2,-1]));
